@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use Illuminate\Support\Str;
 
 abstract class BaseGenerateService
@@ -30,9 +29,9 @@ abstract class BaseGenerateService
         $this->attributes = $schema['attributes'];
     }
 
-    abstract function generate(): string;
+    abstract public function generate(): string;
 
-    abstract function getFileName(): string;
+    abstract public function getFileName(): string;
 
     protected function convertTypeToPhp(string $type): string
     {

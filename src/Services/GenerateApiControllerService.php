@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use JannisFieml\ApiGenerator\Responses\ApiDataResponse;
@@ -65,6 +64,7 @@ class GenerateApiControllerService extends BaseGenerateService
     {
         $body = "\$data = " . $this->getModel() . "::all();\n\n";
         $body .= "return new ApiDataResponse(\$data->toArray());";
+
         return $body;
     }
 
@@ -79,6 +79,7 @@ class GenerateApiControllerService extends BaseGenerateService
         $body .= "$$mainVar". "->save(); \n\n";
 
         $body .= "return new ApiDataResponse(\$$mainVar" . "->toArray());";
+
         return $body;
     }
 
@@ -94,6 +95,7 @@ class GenerateApiControllerService extends BaseGenerateService
         $body .= "$$mainVar". "->save(); \n\n";
 
         $body .= "return new ApiDataResponse(\$$mainVar" . "->toArray());";
+
         return $body;
     }
 
@@ -105,10 +107,11 @@ class GenerateApiControllerService extends BaseGenerateService
         $body .= "$$mainVar". "->delete(); \n\n";
 
         $body .= "return new ApiDataResponse();";
+
         return $body;
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return $this->getController() . ".php";
     }

@@ -3,8 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\Printer;
@@ -45,7 +43,7 @@ class GenerateTestsService extends BaseGenerateService
         return "\$this->assertTrue(true);";
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return $this->action . "ActionTest.php";
     }

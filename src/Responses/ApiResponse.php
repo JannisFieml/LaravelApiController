@@ -3,9 +3,8 @@
 
 namespace JannisFieml\ApiGenerator\Responses;
 
-
-use JannisFieml\ApiGenerator\Services\ArrayTransformerService;
 use Illuminate\Http\JsonResponse;
+use JannisFieml\ApiGenerator\Services\ArrayTransformerService;
 
 class ApiResponse extends JsonResponse
 {

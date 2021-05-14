@@ -32,7 +32,7 @@ class GenerateRoutesCommand extends BaseGenerateCommand
         $routes .= $this->getCommentText();
         $routes .= "\n\n";
 
-        foreach($schemas as $schema) {
+        foreach ($schemas as $schema) {
             $generateRoutesService = new GenerateRoutesService($schema);
             $routes .= $generateRoutesService->generate();
         }
@@ -42,26 +42,28 @@ class GenerateRoutesCommand extends BaseGenerateCommand
         return 0;
     }
 
-    private function updateApiRoutes($routes) {
+    private function updateApiRoutes($routes)
+    {
         $fileName = "api.php";
         $path = base_path();
         $destinationDirectory = "$path/routes";
 
         $file = "$destinationDirectory/$fileName";
 
-        if($this->filesystem->isDirectory($destinationDirectory)){
-            if($this->filesystem->isFile($file)) {
+        if ($this->filesystem->isDirectory($destinationDirectory)) {
+            if ($this->filesystem->isFile($file)) {
                 $content = $this->filesystem->get($file);
                 $indexOfGeneratedRoutes = strpos($content, "\n\n" . $this->getCommentText());
 
-                if($indexOfGeneratedRoutes) {
+                if ($indexOfGeneratedRoutes) {
                     $content = substr($content, 0, $indexOfGeneratedRoutes);
                 }
 
                 $content .= $routes;
 
-                if(!$this->filesystem->put($file, $content))
+                if (! $this->filesystem->put($file, $content)) {
                     $this->error('Something went wrong!');
+                }
                 $this->info("$fileName updated!");
             } else {
                 $this->error("api.php routes file does not exist!");

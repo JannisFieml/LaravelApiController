@@ -30,7 +30,7 @@ abstract class BaseGenerateCommand extends Command
         $schemas = [];
         $files = glob(base_path() . "/schemas/*.{yaml}", GLOB_BRACE);
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $schema = Yaml::parse(file_get_contents($file));
             $schema['index'] = (int)substr(basename($file), 0, strpos(basename($file), "_"));
 
@@ -40,17 +40,20 @@ abstract class BaseGenerateCommand extends Command
         return $schemas;
     }
 
-    protected function createFile($fileName, $destinationDirectory, $content) {
+    protected function createFile($fileName, $destinationDirectory, $content)
+    {
         $file = "$destinationDirectory/$fileName";
 
-        if($this->filesystem->isDirectory($destinationDirectory)){
-            if($this->filesystem->isFile($file))
+        if ($this->filesystem->isDirectory($destinationDirectory)) {
+            if ($this->filesystem->isFile($file)) {
                 $this->warn("$fileName File Already exists!");
+            }
         } else {
             $this->filesystem->makeDirectory($destinationDirectory, 0777, true, true);
         }
-        if(!$this->filesystem->put($file, $content))
+        if (! $this->filesystem->put($file, $content)) {
             $this->error('Something went wrong!');
+        }
         $this->info("$fileName generated!");
     }
 }

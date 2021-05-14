@@ -3,8 +3,8 @@
 namespace Jannisfieml\LaravelApiGenerator\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Jannisfieml\LaravelApiGenerator\LaravelApiGeneratorServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

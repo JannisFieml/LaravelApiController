@@ -3,7 +3,6 @@
 namespace JannisFieml\ApiGenerator\Console;
 
 use Illuminate\Support\Str;
-use JannisFieml\ApiGenerator\Services\GenerateRequestService;
 use JannisFieml\ApiGenerator\Services\GenerateTestsService;
 
 class GenerateControllerTestsCommand extends BaseGenerateCommand
@@ -34,7 +33,7 @@ class GenerateControllerTestsCommand extends BaseGenerateCommand
         $actions = ['create', 'read', 'update', 'delete'];
 
         foreach ($schemas as $schema) {
-            foreach($actions as $action) {
+            foreach ($actions as $action) {
                 $generateModelService = new GenerateTestsService($schema, $action);
                 $content = $generateModelService->generate();
 

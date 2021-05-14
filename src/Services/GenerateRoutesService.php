@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 class GenerateRoutesService extends BaseGenerateService
 {
     public function generate(): string
@@ -23,7 +22,7 @@ class GenerateRoutesService extends BaseGenerateService
         return $content;
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return "api.php";
     }

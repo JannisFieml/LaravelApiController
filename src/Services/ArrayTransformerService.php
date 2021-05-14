@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use Illuminate\Support\Str;
 
 class ArrayTransformerService
@@ -12,8 +11,8 @@ class ArrayTransformerService
     {
         $result = [];
 
-        foreach($array as $key => $value) {
-            if(is_array($value)) {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
                 $value = $this->transformToCamelCase($value);
             } elseif (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
@@ -33,8 +32,8 @@ class ArrayTransformerService
     {
         $result = [];
 
-        foreach($array as $key => $value) {
-            if(is_array($value)) {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
                 $value = $this->transformToSnakeCase($value);
             } elseif (is_object($value)) {
                 if (method_exists($value, 'toArray')) {

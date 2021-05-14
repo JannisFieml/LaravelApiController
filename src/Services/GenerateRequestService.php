@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
@@ -64,7 +63,7 @@ class GenerateRequestService extends BaseGenerateService
         return $body . "];";
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return $this->action . $this->getModel() . "Request.php";
     }

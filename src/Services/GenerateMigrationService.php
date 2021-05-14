@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -47,7 +46,7 @@ class GenerateMigrationService extends BaseGenerateService
         $body .= "\t\$table->id();\n";
         $body .= "\t\$table->timestamps();\n";
 
-        foreach($this->attributes as $attribute) {
+        foreach ($this->attributes as $attribute) {
             $row = "\t\$table->";
             $row .= $attribute['type'] . "('" . $attribute['name'] . "')";
 
@@ -68,7 +67,7 @@ class GenerateMigrationService extends BaseGenerateService
         return "Schema::dropIfExists('" . $this->getTable() . "');";
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return date('Y_m_d_His', (time() + $this->schema['index'])) . "_create_" . $this->getTable() . "_table.php";
     }

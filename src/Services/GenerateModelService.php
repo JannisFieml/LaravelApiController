@@ -3,7 +3,6 @@
 
 namespace JannisFieml\ApiGenerator\Services;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -50,7 +49,7 @@ class GenerateModelService extends BaseGenerateService
             ->setReturnType('int')
             ->setBody("return \$this->getAttribute('id');");
 
-        foreach($this->attributes as $attribute) {
+        foreach ($this->attributes as $attribute) {
             $name = $attribute['name'];
 
             $class->addMethod('get' . Str::ucfirst(Str::camel($name)))
@@ -64,7 +63,7 @@ class GenerateModelService extends BaseGenerateService
                 ->setBody("\$this->setAttribute('$name', \$$name);\n\n" . "return \$this;")
                 ->addParameter($name)->setType($this->convertTypeToPhp($attribute['type']));
 
-            if($attribute['type'] === 'foreignId') {
+            if ($attribute['type'] === 'foreignId') {
                 $relationName = Str::replaceLast('_id', '', $name);
 
                 $namespace->addUse(BelongsTo::class);
@@ -79,7 +78,7 @@ class GenerateModelService extends BaseGenerateService
         return $printer->printFile($file);
     }
 
-    function getFileName(): string
+    public function getFileName(): string
     {
         return $this->getModel() . ".php";
     }
