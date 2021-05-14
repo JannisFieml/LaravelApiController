@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Jannisfieml\LaravelApiGenerator\Tests;
 
 class ExampleTest extends TestCase
 {

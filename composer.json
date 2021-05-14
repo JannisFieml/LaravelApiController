@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "jannisfieml/laravelapigenerator",
+    "description": "A small package to generate basic migrations, models, requests, controllers and routes by editing yaml files",
     "keywords": [
-        ":vendor_name",
+        "JannisFieml",
         "laravel",
-        "package_slug"
+        "laravelapigenerator"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/jannisfieml/laravelapigenerator",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Jannis Fieml",
+            "email": "jannis@fieml.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Jannisfieml\\LaravelApiGenerator\\": "src",
+            "Jannisfieml\\LaravelApiGenerator\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Jannisfieml\\LaravelApiGenerator\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Jannisfieml\\LaravelApiGenerator\\LaravelApiGeneratorServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "LaravelApiGenerator": "Jannisfieml\\LaravelApiGenerator\\LaravelApiGeneratorFacade"
             }
         }
     },
