@@ -3,9 +3,8 @@
 
 namespace Jannisfieml\LaravelApiGenerator\Responses;
 
-
-use Jannisfieml\LaravelApiGenerator\Services\ArrayTransformerService;
 use Illuminate\Http\JsonResponse;
+use Jannisfieml\LaravelApiGenerator\Services\ArrayTransformerService;
 
 class ApiResponse extends JsonResponse
 {
