@@ -1,8 +1,8 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use JannisFieml\ApiGenerator\Services\GenerateRoutesService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateRoutesService;
 
 class GenerateRoutesCommand extends BaseGenerateCommand
 {

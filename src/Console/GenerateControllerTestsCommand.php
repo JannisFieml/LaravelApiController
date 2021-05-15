@@ -1,10 +1,10 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
 use Illuminate\Support\Str;
-use JannisFieml\ApiGenerator\Services\GenerateRequestService;
-use JannisFieml\ApiGenerator\Services\GenerateTestsService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateRequestService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateTestsService;
 
 class GenerateControllerTestsCommand extends BaseGenerateCommand
 {

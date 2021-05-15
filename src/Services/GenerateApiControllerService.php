@@ -1,14 +1,14 @@
 <?php
 
 
-namespace JannisFieml\ApiGenerator\Services;
+namespace Jannisfieml\LaravelApiGenerator\Services;
 
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
-use JannisFieml\ApiGenerator\Responses\ApiDataResponse;
-use JannisFieml\ApiGenerator\Responses\ApiErrorResponse;
-use JannisFieml\ApiGenerator\Responses\ApiResponse;
+use Jannisfieml\LaravelApiGenerator\Responses\ApiDataResponse;
+use Jannisfieml\LaravelApiGenerator\Responses\ApiErrorResponse;
+use Jannisfieml\LaravelApiGenerator\Responses\ApiResponse;
 use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\Printer;
 

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace JannisFieml\ApiGenerator\Responses;
+namespace Jannisfieml\LaravelApiGenerator\Responses;
 
 
-use JannisFieml\ApiGenerator\Services\ArrayTransformerService;
+use Jannisfieml\LaravelApiGenerator\Services\ArrayTransformerService;
 use Illuminate\Http\JsonResponse;
 
 class ApiResponse extends JsonResponse

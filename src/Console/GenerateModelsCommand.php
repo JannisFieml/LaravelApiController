@@ -1,8 +1,8 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use JannisFieml\ApiGenerator\Services\GenerateModelService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateModelService;
 
 class GenerateModelsCommand extends BaseGenerateCommand
 {

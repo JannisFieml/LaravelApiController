@@ -1,8 +1,8 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use JannisFieml\ApiGenerator\Services\GenerateMigrationService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateMigrationService;
 
 class GenerateMigrationsCommand extends BaseGenerateCommand
 {

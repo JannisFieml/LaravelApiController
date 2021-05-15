@@ -1,14 +1,14 @@
 <?php
 
-namespace JannisFieml\ApiGenerator;
+namespace JannisFieml\LaravelApiGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use JannisFieml\ApiGenerator\Console\GenerateApiControllersCommand;
-use JannisFieml\ApiGenerator\Console\GenerateControllerTestsCommand;
-use JannisFieml\ApiGenerator\Console\GenerateMigrationsCommand;
-use JannisFieml\ApiGenerator\Console\GenerateModelsCommand;
-use JannisFieml\ApiGenerator\Console\GenerateRequestsCommand;
-use JannisFieml\ApiGenerator\Console\GenerateRoutesCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateApiControllersCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateControllerTestsCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateMigrationsCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateModelsCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateRequestsCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateRoutesCommand;
 
 class ApiGeneratorServiceProvider extends ServiceProvider
 {

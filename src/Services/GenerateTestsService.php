@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JannisFieml\ApiGenerator\Services;
+namespace Jannisfieml\LaravelApiGenerator\Services;
 
 
 use Illuminate\Foundation\Http\FormRequest;

@@ -1,6 +1,6 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -8,10 +8,7 @@ use Symfony\Component\Yaml\Yaml;
 
 abstract class BaseGenerateCommand extends Command
 {
-    /**
-     * @var Filesystem
-     */
-    protected $filesystem;
+    protected Filesystem $filesystem;
 
     /**
      * Create a new command instance.

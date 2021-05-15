@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JannisFieml\ApiGenerator\Responses;
+namespace Jannisfieml\LaravelApiGenerator\Responses;
 
 
 class ApiDataResponse extends ApiResponse

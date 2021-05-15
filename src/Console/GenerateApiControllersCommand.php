@@ -1,8 +1,8 @@
 <?php
 
-namespace JannisFieml\ApiGenerator\Console;
+namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use JannisFieml\ApiGenerator\Services\GenerateApiControllerService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateApiControllerService;
 
 class GenerateApiControllersCommand extends BaseGenerateCommand
 {
