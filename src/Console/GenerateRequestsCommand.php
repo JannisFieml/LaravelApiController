@@ -32,7 +32,7 @@ class GenerateRequestsCommand extends BaseGenerateCommand
         $actions = ['create', 'update'];
 
         foreach ($schemas as $schema) {
-            foreach($actions as $action) {
+            foreach ($actions as $action) {
                 $generateModelService = new GenerateRequestService($schema, $action);
                 $content = $generateModelService->generate();
 
