@@ -19,7 +19,7 @@ class GenerateSchemaService
     public function generate(): string
     {
         $content = "name: \"" . $this->name . "\"\n";
-        $content .= "attributes: \n";
+        $content .= "attributes:\n";
         $content .= "\t-\n";
         $content .= "\t\tname: \"attribute\"\n";
         $content .= "\t\ttype: \"string\"\n";
