@@ -29,7 +29,13 @@ class GenerateModelService extends BaseGenerateService
             ->addComment("The table associated with the model.\n")
             ->addComment("@var string");
 
-        $class->addProperty('fillable', array_column($this->attributes, 'name'))
+        $fillable = [];
+
+        foreach ($this->attributes as $attribute) {
+            $fillable[] = Str::snake($attribute['name']);
+        }
+
+        $class->addProperty('fillable', $fillable)
             ->setProtected()
             ->addComment("The attributes that are mass assignable.\n")
             ->addComment("@var array");
@@ -55,12 +61,12 @@ class GenerateModelService extends BaseGenerateService
             $class->addMethod('get' . Str::ucfirst(Str::camel($name)))
                 ->setPublic()
                 ->setReturnType($this->convertTypeToPhp($attribute['type']))
-                ->setBody("return \$this->getAttribute('$name');");
+                ->setBody("return \$this->getAttribute('" . Str::snake($attribute['name']) . "');");
 
             $class->addMethod('set' . Str::ucfirst(Str::camel($name)))
                 ->setPublic()
                 ->setReturnType('self')
-                ->setBody("\$this->setAttribute('$name', \$$name);\n\n" . "return \$this;")
+                ->setBody("\$this->setAttribute('" . Str::snake($attribute['name']) . "', \$$name);\n\n" . "return \$this;")
                 ->addParameter($name)->setType($this->convertTypeToPhp($attribute['type']));
 
             if ($attribute['type'] === 'foreignId') {
