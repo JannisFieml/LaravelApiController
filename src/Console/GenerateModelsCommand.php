@@ -2,7 +2,7 @@
 
 namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use Jannisfieml\LaravelApiGenerator\Services\GenerateSchemaService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateModelService;
 
 class GenerateModelsCommand extends BaseGenerateCommand
 {
@@ -30,7 +30,7 @@ class GenerateModelsCommand extends BaseGenerateCommand
         $schemas = $this->getSchemas();
 
         foreach ($schemas as $schema) {
-            $generateModelService = new GenerateSchemaService($schema);
+            $generateModelService = new GenerateModelService($schema);
             $content = $generateModelService->generate();
 
             $fileName = $generateModelService->getFileName();
