@@ -6,9 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateApiControllersCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateControllerTestsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateMigrationsCommand;
-use Jannisfieml\LaravelApiGenerator\Console\GenerateSchemaCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateRequestsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateRoutesCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateSchemaCommand;
 
 class LaravelApiGeneratorServiceProvider extends ServiceProvider
 {
