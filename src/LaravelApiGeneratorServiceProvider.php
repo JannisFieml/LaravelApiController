@@ -10,7 +10,7 @@ use Jannisfieml\LaravelApiGenerator\Console\GenerateModelsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateRequestsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateRoutesCommand;
 
-class ApiGeneratorServiceProvider extends ServiceProvider
+class LaravelApiGeneratorServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
