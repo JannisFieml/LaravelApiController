@@ -18,13 +18,13 @@ class GenerateSchemaService
 
     public function generate(): string
     {
-        $content = "name: \"" . $this->name . "\"";
+        $content = "name: \"" . $this->name . "\"\n";
         $content .= "attributes: \n";
         $content .= "\t-\n";
-        $content .= "\t\tname: \"attribute\"";
-        $content .= "\t\ttype: \"string\"";
-        $content .= "\t\tprops: []";
-        $content .= "\t\tvalidations: []";
+        $content .= "\t\tname: \"attribute\"\n";
+        $content .= "\t\ttype: \"string\"\n";
+        $content .= "\t\tprops: []\n";
+        $content .= "\t\tvalidations: []\n";
 
         return $content;
     }
