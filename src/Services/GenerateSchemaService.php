@@ -20,11 +20,11 @@ class GenerateSchemaService
     {
         $content = "name: \"" . $this->name . "\"\n";
         $content .= "attributes:\n";
-        $content .= "\t-\n";
-        $content .= "\t\tname: \"attribute\"\n";
-        $content .= "\t\ttype: \"string\"\n";
-        $content .= "\t\tprops: []\n";
-        $content .= "\t\tvalidations: []\n";
+        $content .= "  -\n";
+        $content .= "    name: \"attribute\"\n";
+        $content .= "    type: \"string\"\n";
+        $content .= "    props: []\n";
+        $content .= "    validations: []\n";
 
         return $content;
     }
