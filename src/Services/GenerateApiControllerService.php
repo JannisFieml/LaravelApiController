@@ -3,7 +3,6 @@
 
 namespace Jannisfieml\LaravelApiGenerator\Services;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Jannisfieml\LaravelApiGenerator\Responses\ApiDataResponse;
 use Jannisfieml\LaravelApiGenerator\Responses\ApiErrorResponse;
@@ -31,7 +30,7 @@ class GenerateApiControllerService extends BaseGenerateService
         $namespace->addUse(ApiErrorResponse::class);
         $namespace->addUse(ArrayTransformerService::class);
 
-        $class->setExtends(Controller::class);
+        $class->setExtends("App\Http\Controllers\Controller");
 
         $class->addMethod('get' . $this->getModelPlural())
             ->setPublic()

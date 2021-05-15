@@ -6,7 +6,6 @@ namespace Jannisfieml\LaravelApiGenerator\Services;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\Printer;
-use Tests\TestCase;
 
 class GenerateTestsService extends BaseGenerateService
 {
@@ -27,9 +26,9 @@ class GenerateTestsService extends BaseGenerateService
         $file = new PhpFile();
         $namespace = $file->addNamespace("Tests\Controller\\" . $this->getModel());
         $class = $namespace->addClass($this->action . "ActionTest");
-        $namespace->addUse(TestCase::class);
+        $namespace->addUse("Tests\TestCase");
 
-        $class->setExtends(TestCase::class);
+        $class->setExtends("Tests\TestCase");
 
         $class->addMethod('testBasicTest')
             ->setPublic()
