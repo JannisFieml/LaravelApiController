@@ -7,20 +7,11 @@ use Illuminate\Support\Str;
 
 abstract class BaseGenerateService
 {
-    /**
-     * @var array
-     */
-    protected $schema;
+    protected array $schema;
 
-    /**
-     * @var string
-     */
-    protected $model;
+    protected string $model;
 
-    /**
-     * @var array
-     */
-    protected $attributes;
+    protected array $attributes;
 
     public function __construct(array $schema)
     {
@@ -35,18 +26,11 @@ abstract class BaseGenerateService
 
     protected function convertTypeToPhp(string $type): string
     {
-        switch ($type) {
-            case 'text':
-            case 'shortText':
-            case 'longText':
-                return 'string';
-
-            case 'foreignId':
-                return 'int';
-
-            default:
-                return $type;
-        }
+        return match ($type) {
+            'text', 'shortText', 'longText' => 'string',
+            'foreignId', 'integer', 'bigInteger' => 'int',
+            default => $type,
+        };
     }
 
     protected function getPlural(): string
