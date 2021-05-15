@@ -41,14 +41,13 @@ abstract class BaseGenerateCommand extends Command
     {
         $file = "$destinationDirectory/$fileName";
 
-        if (!$this->filesystem->isDirectory($destinationDirectory)) {
+        if (! $this->filesystem->isDirectory($destinationDirectory)) {
             $this->filesystem->makeDirectory($destinationDirectory, 0777, true, true);
-
         }
 
         if ($this->filesystem->isFile($file)) {
             $this->warn("$fileName File Already exists!");
-            if (!$this->confirm("Do you really want to overwrite it?")) {
+            if (! $this->confirm("Do you really want to overwrite it?")) {
                 return;
             }
         }
