@@ -17,7 +17,7 @@ composer require jannisfieml/laravelapigenerator
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="JannisFieml\LaravelApiGenerator\LaravelApiGeneratorServiceProvider"
+php artisan vendor:publish --provider="JannisFieml\LaravelApiGenerator\LaravelApiGeneratorServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
