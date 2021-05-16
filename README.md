@@ -67,6 +67,8 @@ attributes:
         type: "string"
         props: []
         validations: []
+hasMany: []
+belongsToMany: []
 
 ```
 
@@ -81,6 +83,8 @@ Some table needs to be created before others, so the order the files as the migr
     - type: type that would be used in a migration (i.e. "integer", "string", "foreignId", ...)
     - props: array of props used in migration (i.e. "nullable", "constrained", ...)
     - validations: array of default laravel validations (i.e. "required", "existing:users,id", ...)
+- hasMany: array of models, that this model has HasMany relations to
+- belongsToMany: array of models, that this model has BelongsToMany relations to
     
 This command always generates a new file and does not modify existing ones.
 Every other command will loop through the schemas directory and will generate files according to your definitions.
@@ -109,6 +113,9 @@ attributes:
         type: "foreignId"
         props: ["constrained"]
         validations: ["required"]
+hasMany: []
+belongsToMany: []
+
 
 ```
 
@@ -158,7 +165,9 @@ class CreateMyModelsTable extends Migration
 }
 
 ```
+
 Run your migrations as usual.
+
 ```bash
 php artisan migrate
 ```
