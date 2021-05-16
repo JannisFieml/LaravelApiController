@@ -21,9 +21,9 @@ abstract class BaseGenerateService
     {
         $this->schema = $schema;
         $this->model = $schema['name'];
-        $this->attributes = $schema['attributes'];
-        $this->hasMany = $schema['has_many'];
-        $this->belongsToMany = $schema['belongs_to_many'];
+        $this->attributes = $schema['attributes'] ?? [];
+        $this->hasMany = $schema['has_many'] ?? [];
+        $this->belongsToMany = $schema['belongs_to_many'] ?? [];
     }
 
     abstract public function generate(): string;
