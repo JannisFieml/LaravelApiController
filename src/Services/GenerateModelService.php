@@ -6,6 +6,8 @@ namespace Jannisfieml\LaravelApiGenerator\Services;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\Printer;
@@ -79,6 +81,24 @@ class GenerateModelService extends BaseGenerateService
                     ->setReturnType(BelongsTo::class)
                     ->setBody("return \$this->belongsTo(" . Str::ucfirst(Str::camel($relationName)) . "::class);");
             }
+        }
+
+        foreach ($this->hasMany as $hasMany) {
+            $namespace->addUse(HasMany::class);
+
+            $class->addMethod(Str::camel(Str::plural($hasMany)))
+                ->setPublic()
+                ->setReturnType(HasMany::class)
+                ->setBody("return \$this->hasMany(" . Str::ucfirst(Str::camel($hasMany)) . "::class);");
+        }
+
+        foreach ($this->belongsToMany as $belongsToMany) {
+            $namespace->addUse(BelongsToMany::class);
+
+            $class->addMethod(Str::camel(Str::plural($belongsToMany)))
+                ->setPublic()
+                ->setReturnType(BelongsToMany::class)
+                ->setBody("return \$this->belongsToMany(" . Str::ucfirst(Str::camel($belongsToMany)) . "::class);");
         }
 
         return $printer->printFile($file);
