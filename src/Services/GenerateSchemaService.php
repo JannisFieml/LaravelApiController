@@ -25,6 +25,8 @@ class GenerateSchemaService
         $content .= "    type: \"string\"\n";
         $content .= "    props: []\n";
         $content .= "    validations: []\n";
+        $content .= "hasMany: []\n";
+        $content .= "belongsToMany: []\n";
 
         return $content;
     }

@@ -20,6 +20,8 @@ class LaravelApiGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravelapigenerator');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 GenerateMigrationsCommand::class,
@@ -41,6 +43,12 @@ class LaravelApiGeneratorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+
+            $this->publishes([
+                __DIR__.'/../config/config.php' => config_path('laravelapigenerator.php'),
+            ], 'config');
+
+        }
     }
 }

@@ -17,13 +17,23 @@ composer require jannisfieml/laravelapigenerator
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Jannisfieml\LaravelApiGenerator\LaravelApiGeneratorServiceProvider" --tag="laravelapigenerator-config"
+php artisan vendor:publish --provider="JannisFieml\LaravelApiGenerator\LaravelApiGeneratorServiceProvider"
 ```
 
 This is the contents of the published config file:
 
 ```php
-return [];
+<?php
+// config for Jannisfieml/LaravelApiGenerator
+
+return [
+    // Class that every generated Controller extends
+    'controller_base_class' => 'App\Http\Controllers\Controller',
+
+    // Class that every generated Model extends
+    'model_base_class' => 'Illuminate\Database\Eloquent\Model',
+];
+
 ```
 
 ## Usage
