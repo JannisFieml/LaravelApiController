@@ -30,7 +30,7 @@ class GenerateApiControllerService extends BaseGenerateService
         $namespace->addUse(ApiErrorResponse::class);
         $namespace->addUse(ArrayTransformerService::class);
 
-        $class->setExtends("App\Http\Controllers\Controller");
+        $class->setExtends(config('laravelapigenerator.controller_base_class'));
 
         $class->addMethod('get' . $this->getModelPlural())
             ->setPublic()

@@ -4,7 +4,6 @@
 namespace Jannisfieml\LaravelApiGenerator\Services;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -21,9 +20,9 @@ class GenerateModelService extends BaseGenerateService
         $namespace = $file->addNamespace("App\Models");
         $class = $namespace->addClass($this->getModel());
         $namespace->addUse(HasFactory::class);
-        $namespace->addUse(Model::class);
+        $namespace->addUse(config('laravelapigenerator.model_base_class'));
 
-        $class->setExtends(Model::class);
+        $class->setExtends(config('laravelapigenerator.model_base_class'));
         $class->addTrait(HasFactory::class);
 
         $class->addProperty('table', $this->getTable())
