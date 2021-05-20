@@ -35,6 +35,7 @@ abstract class BaseGenerateService
         return match ($type) {
             'text', 'shortText', 'longText' => 'string',
             'foreignId', 'integer', 'bigInteger' => 'int',
+            'double', 'decimal' => 'float',
             default => $type,
         };
     }

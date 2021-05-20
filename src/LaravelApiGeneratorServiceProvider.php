@@ -5,6 +5,7 @@ namespace JannisFieml\LaravelApiGenerator;
 use Illuminate\Support\ServiceProvider;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateApiControllersCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateControllerTestsCommand;
+use Jannisfieml\LaravelApiGenerator\Console\GenerateInsomniaCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateMigrationsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateModelsCommand;
 use Jannisfieml\LaravelApiGenerator\Console\GenerateRequestsCommand;
@@ -32,6 +33,7 @@ class LaravelApiGeneratorServiceProvider extends ServiceProvider
                 GenerateRoutesCommand::class,
                 GenerateControllerTestsCommand::class,
                 GenerateSchemaCommand::class,
+                GenerateInsomniaCommand::class,
             ]);
         }
     }

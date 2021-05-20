@@ -401,6 +401,65 @@ class MyModelController extends Controller
 
 ```
 
+### Generate routes
+
+```bash
+php artisan generate:routes
+```
+
+The generated routes give your generated controllers routes you can call.
+You can use your own logic or change the controllers and functions these routes call.
+
+This command will append a comment and the generated routes to the api.php routes file.
+You can move them above the generated comment and edit them, so a future call of this command won't rewrite them.
+If you edit the comment itself an execution of the command will append everything to the api.php file again
+as if the command was never run before
+(The command is used to identify the auto-generated section of the api.php route file).
+
+The generated routes will look like this:
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+// ... probably your other routes if you have any
+
+/*
+|--------------------------------------------------------------------------
+| These are auto-generated routes of @JannisFieml/apigenerator
+| Please don't edit this comment or any lines below!
+| Otherwise automated updates of this code won't be possible.
+| ...but I am just a comment, so do what you want
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware([])->group(function () {
+	Route::get('/related-models', [App\Http\Controllers\RelatedModelController::class, 'getRelatedModels']);
+	Route::post('/related-models', [App\Http\Controllers\RelatedModelController::class, 'createRelatedModel']);
+	Route::put('/related-models/{id}', [App\Http\Controllers\RelatedModelController::class, 'updateRelatedModel']);
+	Route::delete('/related-models/{id}', [App\Http\Controllers\RelatedModelController::class, 'deleteRelatedModel']);
+});
+
+Route::middleware([])->group(function () {
+	Route::get('/main-models', [App\Http\Controllers\MainModelController::class, 'getMainModels']);
+	Route::post('/main-models', [App\Http\Controllers\MainModelController::class, 'createMainModel']);
+	Route::put('/main-models/{id}', [App\Http\Controllers\MainModelController::class, 'updateMainModel']);
+	Route::delete('/main-models/{id}', [App\Http\Controllers\MainModelController::class, 'deleteMainModel']);
+});
+
+```
+
+### Generate insomnia export
+
+```bash
+php artisan generate:insomnia
+```
+
+This command generates a file that you can import in [insomnia](https://insomnia.rest/) to test your api-routes.
+This command only generates an export for the routes / controllers that this package will generate.
+
+You can find your exports in the insomnia directory in your project root.
+
 ## Testing
 
 ```bash
