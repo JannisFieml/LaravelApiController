@@ -2,23 +2,23 @@
 
 namespace Jannisfieml\LaravelApiGenerator\Console;
 
-use Jannisfieml\LaravelApiGenerator\Services\GenerateSchemaService;
+use Jannisfieml\LaravelApiGenerator\Services\GenerateInsomniaService;
 
-class GenerateSchemaCommand extends BaseGenerateCommand
+class GenerateInsomniaCommand extends BaseGenerateCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'generate:schema {name}';
+    protected $signature = 'generate:insomnia';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Makes a new schema';
+    protected $description = 'Makes an insomnia export';
 
     /**
      * Execute the console command.
@@ -29,12 +29,12 @@ class GenerateSchemaCommand extends BaseGenerateCommand
     {
         $schemas = $this->getSchemas();
 
-        $generateSchemaService = new GenerateSchemaService($schemas, $this->argument('name'));
-        $content = $generateSchemaService->generate();
+        $generateInsomniaService = new GenerateInsomniaService($schemas);
+        $content = $generateInsomniaService->generate();
 
-        $fileName = $generateSchemaService->getFileName();
+        $fileName = $generateInsomniaService->getFileName();
         $path = base_path();
-        $destinationDirectory = "$path/schemas";
+        $destinationDirectory = "$path/insomnia";
 
         $this->createFile($fileName, $destinationDirectory, $content);
 
