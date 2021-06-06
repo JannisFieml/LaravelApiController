@@ -3,7 +3,6 @@
 namespace Jannisfieml\LaravelApiGenerator\Console;
 
 use Jannisfieml\LaravelApiGenerator\Services\GenerateInsomniaService;
-use Jannisfieml\LaravelApiGenerator\Services\GenerateSchemaService;
 
 class GenerateInsomniaCommand extends BaseGenerateCommand
 {

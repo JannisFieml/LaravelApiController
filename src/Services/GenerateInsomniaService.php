@@ -19,9 +19,9 @@ class GenerateInsomniaService
         $content = [
             '_type' => 'export',
             '__export_format' => 4,
-            '__export_date' =>  date(DATE_ISO8601),
+            '__export_date' => date(DATE_ISO8601),
             '__export_source' => 'laravelapigenerator',
-            'resources' => []
+            'resources' => [],
         ];
 
         $workspaceId = '__WORKSPACE_1__';
@@ -46,10 +46,10 @@ class GenerateInsomniaService
             'name' => 'Local-Environment',
             'description' => 'My local dev-environment to test my api-routes',
             'environment' => [
-                'base_url' => 'http://localhost:8000/api'
+                'base_url' => 'http://localhost:8000/api',
             ],
             'environmentPropertyOrder' => [
-                '&' => ['base_url']
+                '&' => ['base_url'],
             ],
         ];
 
@@ -57,7 +57,7 @@ class GenerateInsomniaService
         foreach ($this->schemas as $schema) {
             $jsonBody = [];
 
-            foreach($schema['attributes'] as $attribute) {
+            foreach ($schema['attributes'] as $attribute) {
                 $jsonBody[$attribute['name']] = "";
             }
 
@@ -67,7 +67,7 @@ class GenerateInsomniaService
                 'name' => Str::snake($schema['name']),
                 'method' => 'GET',
                 'url' => '{{ _.base_url }}/' . Str::kebab($schema['name']),
-                'parentId' => $localGroupId
+                'parentId' => $localGroupId,
             ];
 
             $content['resources'][] = [
@@ -79,7 +79,7 @@ class GenerateInsomniaService
                 'parentId' => $localGroupId,
                 'body' => [
                     'mimeType' => 'application/json',
-                    'text' => json_encode($jsonBody, JSON_PRETTY_PRINT)
+                    'text' => json_encode($jsonBody, JSON_PRETTY_PRINT),
                 ],
             ];
 
@@ -92,7 +92,7 @@ class GenerateInsomniaService
                 'parentId' => $localGroupId,
                 'body' => [
                     'mimeType' => 'application/json',
-                    'text' => json_encode($jsonBody, JSON_PRETTY_PRINT)
+                    'text' => json_encode($jsonBody, JSON_PRETTY_PRINT),
                 ],
             ];
 
@@ -102,7 +102,7 @@ class GenerateInsomniaService
                 'name' => Str::snake($schema['name']),
                 'method' => 'DELETE',
                 'url' => '{{ _.base_url }}/' . Str::kebab($schema['name']) . '/{id}',
-                'parentId' => $localGroupId
+                'parentId' => $localGroupId,
             ];
 
             $i++;
