@@ -36,6 +36,7 @@ abstract class BaseGenerateService
             'text', 'shortText', 'longText' => 'string',
             'foreignId', 'integer', 'bigInteger' => 'int',
             'double', 'decimal' => 'float',
+            'boolean' => 'bool',
             default => $type,
         };
     }
